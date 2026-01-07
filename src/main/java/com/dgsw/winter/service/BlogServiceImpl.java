@@ -3,6 +3,8 @@ package com.dgsw.winter.service;
 import com.dgsw.winter.dto.request.AddArticleRequest;
 import com.dgsw.winter.dto.request.UpdateArticleRequest;
 import com.dgsw.winter.entity.Article;
+import com.dgsw.winter.exception.ArticleNotFoundException;
+import com.dgsw.winter.exception.CustomException;
 import com.dgsw.winter.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,9 +35,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Article findById(Long id){
         return blogRepository.findById(id)
-                .orElseThrow(
-                    () -> new IllegalArgumentException("Article not found with id: " + id)
-                );
+                .orElseThrow(ArticleNotFoundException::new);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class BlogServiceImpl implements BlogService {
         Article article
                 = blogRepository.findById(id)
                 .orElseThrow(
-                    () -> new IllegalArgumentException("Article not found with id: " + id)
+                        ArticleNotFoundException::new
                 );
         blogRepository.delete(article);
     }
@@ -52,7 +52,7 @@ public class BlogServiceImpl implements BlogService {
     public Article updateArticle(long id, UpdateArticleRequest request){
         Article article = blogRepository.findById(id)
                 .orElseThrow(
-                        () -> new IllegalArgumentException("Article not found with id: " + id)
+                        ArticleNotFoundException::new
                 );
         article.update(request.getTitle(),request.getContent());
         return article;
