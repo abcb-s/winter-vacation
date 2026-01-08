@@ -2,6 +2,9 @@ package com.dgsw.winter;
 
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 public class JUnitTest {
 
     @BeforeAll
@@ -32,5 +35,12 @@ public class JUnitTest {
     @AfterAll
     static void afterAll() {
         System.out.println("=== AfterAll: 모든 테스트 종료 후 단 1번 실행 ===");
+    }
+
+    @Test
+    void main(){
+        List<String> lst = List.of("1","1","1");
+        Stream<String> stream = lst.stream();
+        Stream<Integer> integerStream = stream.map(Integer::valueOf);
     }
 }

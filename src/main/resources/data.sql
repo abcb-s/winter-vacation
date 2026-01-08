@@ -5,6 +5,7 @@ VALUES
     ('세 번째 게시글', 'Spring Boot와 H2 DB를 활용하여 API 서버를 개발하고 있습니다.'),
     ('네 번째 게시글', '데이터가 잘 들어가는지 확인하기 위한 더미 데이터입니다.'),
     ('다섯 번째 게시글', '테스트용 게시글입니다. 언제든지 삭제해도 됩니다.');
+
 INSERT INTO tb_course (name, category, rating, description)
 VALUES
     ('Rapid Spring Boot Application Development', 'Spring', 4, 'Spring Boot gives all the power of the Spring Framework without all of the
