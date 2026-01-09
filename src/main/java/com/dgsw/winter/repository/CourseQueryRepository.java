@@ -21,4 +21,5 @@ public interface CourseQueryRepository extends JpaRepository<Course, Long> {
     @Query(value = "SELECT * FROM tb_courses WHERE category = :category",nativeQuery = true)
     List<Course> findByCategoryNative(@Param("category") String category);
 
+    List<Course> findByNameStartingWith(String name);
 }

@@ -55,4 +55,12 @@ class CourseQueryRepositoryTest {
                 .allMatch(course -> "JavaScript".equals(course.getCategory()));
     }
 
+    @Test
+    void findByNameStartingWith(){
+        List<Course> result = courseQueryRepository.findByNameStartingWith("java");
+        result.forEach(System.out::println);
+
+    }
+
+
 }

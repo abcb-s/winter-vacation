@@ -59,4 +59,5 @@ class CourseQueryMethodRepositoryTest {
         assertThat(result)
                 .isEqualTo(3);
     }
+
 }
